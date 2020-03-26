@@ -13,7 +13,7 @@ from tendies.config import TW_TOKEN_DIR, TW_URL
 class TastyUser(User):
 
     @classmethod
-    def login(cls, username: str = None, password: str = None, **kwargs):
+    def login(cls, username: str = os.getenv('TW_USER'), password: str = os.getenv('TW_PWD'), **kwargs):
         tasty_user = cls(username=username, password=password, **kwargs)
 
         if os.path.exists(TW_TOKEN_DIR):
